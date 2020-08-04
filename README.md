@@ -41,3 +41,5 @@ A4 | SDA
 A5 | SCK
 # Schéma zapojenia
 ![Schéma zapojenia - Hasičské stopky - Arduino](https://i.imgur.com/GbU5zPK.png)
+# Video stopiek na stotiny v akcii s meraním spotreby
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/E_z6doJvXng/0.jpg)](https://www.youtube.com/watch?v=E_z6doJvXng "Hasičské stopky - Arduino - spotreba - funkčnosť")
