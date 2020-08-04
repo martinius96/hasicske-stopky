@@ -4,13 +4,22 @@
 * Čas je vypisovaný na LCD znakový displej rozmeru 20x4, alebo 16x2 s ktorými ráta aj programová implementácia
 * Vstupy sú pripojené v režime INPUT_PULLUP buď k internému 20-kohm rezistoru Arduina, alebo prostredníctvom externého pullup rezistora
 ![Hasičské stopky - Arduino - desatiny](https://i.imgur.com/Ciz66ft.jpg)
-**Funkčnosť systému:**
-* Stopky sa odštartujú tlačidlom (môže byť nahradené signálnou pištoľou)
+# Funkčnosť systému:
+* Stopky sa odštartujú kontaktom (môže byť nahradené signálnou pištoľou)
 * 2 spínacie kontakty umiestnené na terčoch sa aktivujú pri spadnutí terča, zastaví sa ľavý/pravý prúd na stopkách.
-* Posledné tlačidlo slúži na vynulovanie času - reset času, nové družstvo, nový štart tímu, neplatný štart.
+* Posledný kontakt slúži na vynulovanie času - reset času, nové družstvo, nový štart tímu, neplatný štart.
 
 **Hardvér pre projekt:**
 * Arduino Uno/Nano - AtMega328P
 * LCD znakový displej 16x2 alebo 20x4
 * I2C prevodník
 * 4x spínacie kontakty
+# Zapojenie
+Arduino | Periféria
+------------ | -------------
+D12 | Kontakt ŠTART
+D11 | Kontakt STOP - ľavý terč
+D10 | Kontakt STOP - pravý terč
+D10 | Kontakt RESET
+A4 | SDA
+A5 | SCK
