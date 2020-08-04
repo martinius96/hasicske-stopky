@@ -28,8 +28,8 @@ Na desatiny | Standard Mode 100 kHz
 Na stotiny | Fast Mode 400 kHz
 
 **Najpoužívanejšie adresy I2C prevodníka displejov**
-* 0x3F
-* 0x27
+* **0x3F**
+* **0x27**
 * Over adresu nahratím I2C scannera: https://playground.arduino.cc/Main/I2cScanner/
 
 # Tabuľkové zapojenie vývodov
