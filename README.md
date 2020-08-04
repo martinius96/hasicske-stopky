@@ -3,6 +3,11 @@
 * Logika systému sa vykonáva každých 10ms (rozlíšenie na stotiny), alebo 100ms (rozlíšenie na desatiny sekundy)
 * Čas je vypisovaný na LCD znakový displej rozmeru 20x4, alebo 16x2 s ktorými ráta aj programová implementácia
 * Vstupy sú pripojené v režime INPUT_PULLUP buď k internému 20-kohm rezistoru Arduina, alebo prostredníctvom externého pullup rezistora
+* Stopky na desatiny sekundy sú dostupné so zdrojovým kódom, **stopky na stotiny sú dostupné iba v strojovom kóde - DEMO s meraním max 20 sekúnd**
+
+**Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex**
+* avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i
+
 ![Hasičské stopky - Arduino - desatiny](https://i.imgur.com/Ciz66ft.jpg)
 # Funkčnosť systému:
 * Stopky sa odštartujú kontaktom (môže byť nahradené signálnou pištoľou)
@@ -14,7 +19,14 @@
 * LCD znakový displej 16x2 alebo 20x4
 * I2C prevodník
 * 4x spínacie kontakty
-# Zapojenie
+
+**Režim I2C zbernice vzhľadom na verzie stopiek**
+**Verzia stopiek** | **Režim I2C**
+:---       |      ---:
+Na desatiny | Standard Mode 100 kHz
+Na stotiny | Fast Mode 400 kHz
+
+# Tabuľkové zapojenie vývodov
 **Arduino** | **Kontakty**
 :---       |      ---:
 D12 | Kontakt ŠTART
