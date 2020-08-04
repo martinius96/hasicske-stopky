@@ -43,8 +43,8 @@ GND | GND
 **Arduino** | **I2C DISPLEJ**
 GND | GND
 5V | VCC
-A4 | SDA
-A5 | SCK
+A4 (HW SDA) | SDA
+A5 (HW SCL) | SCL
 # Schéma zapojenia
 ![Schéma zapojenia - Hasičské stopky - Arduino](https://i.imgur.com/GbU5zPK.png)
 # Video stopiek na stotiny v akcii s meraním spotreby
