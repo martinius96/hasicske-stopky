@@ -39,6 +39,7 @@ D12 | Kontakt ŠTART
 D11 | Kontakt STOP - ľavý terč
 D10 | Kontakt STOP - pravý terč
 D10 | Kontakt RESET
+GND | GND
 **Arduino** | **I2C DISPLEJ**
 GND | GND
 5V | VCC
