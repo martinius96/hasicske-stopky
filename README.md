@@ -15,17 +15,14 @@
 * I2C prevodník
 * 4x spínacie kontakty
 # Zapojenie
-Arduino | Kontakty
------------- | -------------
+**Arduino** | **Kontakty**
 D12 | Kontakt ŠTART
 D11 | Kontakt STOP - ľavý terč
 D10 | Kontakt STOP - pravý terč
 D10 | Kontakt RESET
-Arduino | Kontakty
-| Left-aligned | Center-aligned | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
+**Arduino** | **I2C DISPLEJ**
+GND | GND
+5V | VCC
 A4 | SDA
 A5 | SCK
 # Schéma zapojenia
