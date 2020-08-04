@@ -16,6 +16,7 @@
 * 4x spínacie kontakty
 # Zapojenie
 **Arduino** | **Kontakty**
+:---       |      ---:
 D12 | Kontakt ŠTART
 D11 | Kontakt STOP - ľavý terč
 D10 | Kontakt STOP - pravý terč
