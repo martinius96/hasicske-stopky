@@ -3,7 +3,7 @@
 * Logika systému sa vykonáva každých 10ms (rozlíšenie na stotiny), alebo 100ms (rozlíšenie na desatiny sekundy)
 * Čas je vypisovaný na LCD znakový displej rozmeru 20x4, alebo 16x2 s ktorými ráta aj programová implementácia
 * Vstupy sú pripojené v režime INPUT_PULLUP buď k internému 20-kohm rezistoru Arduina, alebo prostredníctvom externého pullup rezistora
-* Stopky na desatiny sekundy sú dostupné so zdrojovým kódom, **stopky na stotiny sú dostupné iba v strojovom kóde - DEMO s meraním max 20 sekúnd**
+* Stopky na desatiny sekundy sú dostupné so zdrojovým kódom, **stopky na stotiny sú dostupné iba v strojovom kóde - shareware - 30 sekúnd inicializácia**
 * Pri záujme o plný zdrojový kód pre stopky na stotiny - martinius96@gmail.com
 
 **Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex**
