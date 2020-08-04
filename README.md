@@ -15,12 +15,14 @@
 * I2C prevodník
 * 4x spínacie kontakty
 # Zapojenie
-Arduino | Periféria
+Arduino | Kontakty
 ------------ | -------------
 D12 | Kontakt ŠTART
 D11 | Kontakt STOP - ľavý terč
 D10 | Kontakt STOP - pravý terč
 D10 | Kontakt RESET
+Arduino | Kontakty
+------------ | -------------
 A4 | SDA
 A5 | SCK
 # Schéma zapojenia
