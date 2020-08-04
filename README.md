@@ -23,3 +23,4 @@ D10 | Kontakt STOP - pravý terč
 D10 | Kontakt RESET
 A4 | SDA
 A5 | SCK
+![Schéma zapojenia - Hasičské stopky - Arduino](https://i.imgur.com/GbU5zPK.png)
