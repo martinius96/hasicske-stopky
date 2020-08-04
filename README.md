@@ -15,7 +15,7 @@
 * 2 spínacie kontakty umiestnené na terčoch sa aktivujú pri spadnutí terča, zastaví sa ľavý/pravý prúd na stopkách.
 * Posledný kontakt slúži na vynulovanie času - reset času, nové družstvo, nový štart tímu, neplatný štart.
 
-**Hardvér pre projekt:**
+# Hardvér pre projekt:
 * Arduino Uno/Nano - AtMega328P
 * LCD znakový displej 16x2 alebo 20x4
 * I2C prevodník
