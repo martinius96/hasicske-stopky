@@ -22,7 +22,10 @@ D11 | Kontakt STOP - ľavý terč
 D10 | Kontakt STOP - pravý terč
 D10 | Kontakt RESET
 Arduino | Kontakty
------------- | -------------
+| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
 A4 | SDA
 A5 | SCK
 # Schéma zapojenia
