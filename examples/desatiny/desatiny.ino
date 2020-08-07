@@ -48,6 +48,12 @@ void setup() {
   pinMode(pravy_terc_kontakt, INPUT_PULLUP);
   pinMode(vynulovat_cas_tlacidlo, INPUT_PULLUP);
   lcd.setCursor(0, 0); //nastav kurzor pre zapis na 1. riadok, 1. stlpec
+  lcd.print("STOPKY - DHZ");
+  lcd.setCursor(0, 1); //nastav kurzor pre zapis na 2. riadok, 1. stlpec
+  lcd.print("MARTIN CHLEBOVEC");
+  delay(2500);
+  lcd.clear();
+  lcd.setCursor(0, 0); //nastav kurzor pre zapis na 1. riadok, 1. stlpec
   lcd.print("00:00:0 L. PRUD");
   lcd.setCursor(0, 1); //nastav kurzor pre zapis na 2. riadok, 1. stlpec
   lcd.print("00:00:0 P. PRUD");
@@ -55,9 +61,9 @@ void setup() {
 
 void tickClock() {
   Serial.println(millis() / 10);
-  if ((timer - millis() / 100) >= 100 || timer == 0) {
+  if (millis() - timer >= 100 || timer == 0) {
     tick();
-    timer = millis() / 100;
+    timer = millis();
   }
 }
 
