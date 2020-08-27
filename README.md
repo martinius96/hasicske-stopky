@@ -1,10 +1,10 @@
 # Stopky pre požiarny šport cez Arduino
 * Stopky vhodné sú vhodné pre Dobrovoľný hasičský zbor (DHZ) pre tréningové meranie útoku tímu.
 * Logika systému sa vykonáva každých 10ms (rozlíšenie na stotiny), alebo 100ms (rozlíšenie na desatiny sekundy)
-* Čas je vypisovaný na LCD znakový displej rozmeru 20x4, alebo 16x2 s ktorými ráta aj programová implementácia
-* Vstupy sú pripojené v režime INPUT_PULLUP buď k internému 20-kohm rezistoru Arduina, alebo prostredníctvom externého pullup rezistora
-* Stopky na desatiny sekundy sú dostupné so zdrojovým kódom, **stopky na stotiny sú dostupné iba v strojovom kóde - shareware - 30 sekúnd inicializácia, max. meranie 15 sekúnd**
-* **Pri záujme o plný zdrojový kód pre stopky na stotiny - martinius96@gmail.com**
+* Pre výpis času sú kompatibilné LCD znakové displeje 16x2 a 20x4. Implementácia využíva výpis na 16x2 plochu
+* Vstupy sú pripojené v režime INPUT_PULLUP buď k internému 20-kohm rezistoru Arduina, alebo prostredníctvom externého pullup rezistora v režime INPUT
+* Stopky na desatiny sekundy sú dostupné so zdrojovým kódom, **stopky na stotiny sú dostupné iba v strojovom kóde - Shareware verzia - 30 sekúnd inicializácia, max. meranie 15 sekúnd**
+* **Pri záujme o plný zdrojový kód .ino pre stopky na stotiny - martinius96@gmail.com**
 
 # Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex
 * **avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i**
