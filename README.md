@@ -6,8 +6,8 @@
 * Stopky na desatiny sekundy sú dostupné so zdrojovým kódom, **stopky na stotiny sú dostupné iba v strojovom kóde - shareware - 30 sekúnd inicializácia, max. meranie 15 sekúnd**
 * **Pri záujme o plný zdrojový kód pre stopky na stotiny - martinius96@gmail.com**
 
-**Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex**
-* avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i
+# Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex**
+* **avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i**
 
 ![Hasičské stopky - Arduino - desatiny](https://i.imgur.com/Ciz66ft.jpg)
 # Funkčnosť systému:
