@@ -1,60 +1,61 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="sk-SK">
 <head>
-    <meta name="robots" content="index, follow">
-    <meta name='revisit-after' content='2 days'>
-    <title>Hasičské stopky / časomiera - Arduino</title>
-    <meta property='fb:admins' content='100001242570317'>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hasičská časomiera - stopky postavené na platforme Arduino Uno. Možno používať pre presnosť na desatiny, stotiny sekundy.">
-    <meta name="keywords" content="hasiči, stopky, časomiera, čas, útok, ľavý, pravý, prúd, prúdnica, motorka, súťaž, zbor, dobrovoľný, beh, rýchlosť, šprint, terč, kontakt"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<meta property="og:title" content="Hasičské stopky / časomiera - Arduino" />
+  	<meta property="og:locale" content="sk_SK" />    	
+	<meta name="robots" content="index, follow">
+    	<meta name='revisit-after' content='2 days'>
+    	<title>Hasičské stopky / časomiera - Arduino</title>
+    	<meta property='fb:admins' content='100001242570317'>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="Hasičská časomiera - stopky postavené na platforme Arduino Uno. Možno používať pre presnosť na desatiny, stotiny sekundy.">
+    	<meta name="keywords" content="hasiči, stopky, časomiera, čas, útok, ľavý, pravý, prúd, prúdnica, motorka, súťaž, zbor, dobrovoľný, beh, rýchlosť, šprint, terč, kontakt"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-<span class="label label-default">Arduino</span>
-<span class="label label-primary">LCD</span>
-<span class="label label-success">Stopwatch</span>
-<span class="label label-info">Firesport</span>
-<span class="label label-danger">Schematics</span>
-<span class="label label-default">Code</span>
-<span class="label label-primary">Eagle</span>
-	
-<hr><center><h2>Stopky pre požiarny šport cez Arduino</h2></center><hr>
-	<li>Stopky vhodné sú vhodné pre Dobrovoľný hasičský zbor (DHZ) pre tréningové meranie útoku tímu.</li>
-	<li>Meranie času na stotiny sekundy, programová logika sa vykonáva každých 10ms, čo je 0.01 sekundy.</li>	   
-	<li>Logika systému sa vykonáva každých 10, alebo 100 milisekúnd podľa softvéru. (10 milisekúnd - presnosť na stotiny, 100 milisekúnd, prenosť na desatiny sekundy)</li>
-  <li>Čas je v reálnom čase vypisovaný na LCD znakový displej rozmeru 20x4, alebo 16x2, program je plne kompatibilný.</li>
-  <h4>Funkčnosť systému:</h4>
-	<li>Stopky sa odštartujú tlačidlom (môže byť nahradené signálnou pištoľou)</li>
-	<li>2 spínacie kontakty umiestnené na terčoch sa aktivujú pri spadnutí terča, zastaví sa ľavý/pravý prúd na stopkách.</li>
-  <li>Posledné tlačidlo slúži na vynulovanie času - reset času, nové družstvo, nový štart tímu, neplatný štart.</li>
-  <div class='alert alert-info'>
-  <b>Stopky žiadnym spôsobom nemôžu nahrádzať certifikovanú časomieru! Meranie je orientačné. Presnosť závisí od použitého kryštálu Arduina.</b>
-  </div>
-	<h4>Hardvér pre projekt:</h4>
-	<li>Arduino Uno</li>
-	<li>LCD displej 16x2 alebo 20x4 s I2C prevodníkom</li>
-	<li>4x spínacie kontakty</li>
-  <li>Možno doplniť o buzzer (hlásič), ktorý pípa pri ukončení útoku</li>
-	<div class='alert alert-success'>
-  <b>Spotreba: </b>20mAh pri 5V napájaní
-  </div>
-  <h4>Stopky v akcii:</h4>
-	<center><img src='https://i.imgur.com/Ciz66ft.jpg' style='display: block; max-width: 100%; height: auto;' title='Hasičské stopky na stotiny sekundy' alt='Hasičské stopky na stotiny sekundy'></center>
-  <h4>Youtube video na ukážku fukčnosti:</h4>
-  <center><iframe width="50%" height="315" src="https://www.youtube.com/embed/E_z6doJvXng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
-<h3>Knižnica pre LCD znakový displej 16x2, 20x4 s I2C prevodníkom</h3>
-<div class="alert alert-success">
-  <strong><a href="https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library">Github</a></strong>
-</div>
-<h3><font color="#3498DB">Stopky na desatiny sekundy - verzia projektu zdarma.</font></h3>
-<div>
-<pre style="background-color:#3498DB;">
+	<div class="container">
+  		<div class="row">
+    			<div class="col-sm-12">
+				<span class="label label-default">Arduino</span>
+				<span class="label label-primary">LCD</span>
+				<span class="label label-success">Stopwatch</span>
+				<span class="label label-info">Firesport</span>
+				<span class="label label-danger">Schematics</span>
+				<span class="label label-default">Code</span>
+				<span class="label label-primary">Eagle</span>
+				<hr><center><h2>Stopky pre požiarny šport cez Arduino</h2></center><hr>
+				<li>Stopky vhodné sú vhodné pre Dobrovoľný hasičský zbor (DHZ) pre tréningové meranie útoku tímu.</li>
+				<li>Meranie času na stotiny sekundy, programová logika sa vykonáva každých 10ms, čo je 0.01 sekundy.</li>	   
+				<li>Logika systému sa vykonáva každých 10, alebo 100 milisekúnd podľa softvéru. (10 milisekúnd - presnosť na stotiny, 100 milisekúnd, prenosť na desatiny sekundy)</li>
+  				<li>Čas je v reálnom čase vypisovaný na LCD znakový displej rozmeru 20x4, alebo 16x2, program je plne kompatibilný.</li>
+  				<h4>Funkčnosť systému:</h4>
+				<li>Stopky sa odštartujú tlačidlom (môže byť nahradené signálnou pištoľou)</li>
+				<li>2 spínacie kontakty umiestnené na terčoch sa aktivujú pri spadnutí terča, zastaví sa ľavý/pravý prúd na stopkách.</li>
+  				<li>Posledné tlačidlo slúži na vynulovanie času - reset času, nové družstvo, nový štart tímu, neplatný štart.</li>
+  				<div class='alert alert-info'>
+  					<b>Stopky žiadnym spôsobom nemôžu nahrádzať certifikovanú časomieru! Meranie je orientačné. Presnosť závisí od použitého kryštálu Arduina.</b>
+  				</div>
+				<h4>Hardvér pre projekt:</h4>
+				<li>Arduino Uno</li>
+				<li>LCD displej 16x2 alebo 20x4 s I2C prevodníkom</li>
+				<li>4x spínacie kontakty</li>
+  				<li>Možno doplniť o buzzer (hlásič), ktorý pípa pri ukončení útoku</li>
+				<div class='alert alert-success'>
+  					<b>Spotreba: </b>20mAh pri 5V napájaní
+  				</div>
+  				<h4>Stopky v akcii:</h4>
+				<center><img src='https://i.imgur.com/Ciz66ft.jpg' style='display: block; max-width: 100%; height: auto;' title='Hasičské stopky na stotiny sekundy' alt='Hasičské stopky na stotiny sekundy'></center>
+  				<h4>Youtube video na ukážku fukčnosti:</h4>
+  				<center><iframe width="50%" height="315" src="https://www.youtube.com/embed/E_z6doJvXng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+				<h3>Knižnica pre LCD znakový displej 16x2, 20x4 s I2C prevodníkom</h3>
+				<div class="alert alert-success">
+  					<strong><a href="https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library">Github</a></strong>
+				</div>
+				<h3><font color="#3498DB">Stopky na desatiny sekundy - verzia projektu zdarma.</font></h3>
+				<div>
+					<pre style="background-color:#3498DB;">
 /*|------------------------------------------------------------------------------------------|*/
 /*|VYHOTOVIL: MARTIN CHLEBOVEC                                                               |*/
 /*|HASICSKE STOPKY - VERZIA ZDARMA - NA DESATINY SEKUNDY S CASOM PRE DVA UTOKY - LAVY/PRAVY  |*/
@@ -64,7 +65,6 @@
 /*|PROGRAMOVU LOGIKU SI MOZETE UPRAVIT PRE OVLADANIE CASOV SAMOSTATNYMI KONTAKTMI NA TERCOCH |*/
 /*|PRI ZAUJME O VERZIU NA STOTINY  --> martinius96@gmail.com                                 |*/
 /*|Doska: Arduino Uno, Nano, Mega, AtMega328P (Hardware I2C)                                 |*/
-/*|WEB: https://arduino.php5.sk/hasicske-stopky.php                                          |*/
 /*|PODPORA PROJEKTU PRE UVOLNENIE PLNEJ VERZIE ZDARMA: https://www.paypal.me/chlebovec       |*/
 /*|------------------------------------------------------------------------------------------|*/
 
@@ -73,7 +73,7 @@
 //I2C adresa, stlpce, riadky, pouziva sa i 0x3F pre displej 20x4, 0x27 pre 16x2, skontruj cez I2C scanner https://playground.arduino.cc/Main/I2cScanner/
 LiquidCrystal_I2C lcd(0x3F, 20, 4);
 
-//DEKLARACIA DIGITALNYCH PINOV NA KTORE SU NAPOJENE TLACIDLA
+//DEKLARACIA KONŠTÁNT S NASTAVENÍM POČIATOCNÝCH HODNÔT
 const int start_tlacidlo = 12;
 const int lavy_terc_kontakt = 11;
 const int pravy_terc_kontakt = 10;
@@ -226,13 +226,13 @@ void updateLCD2() {
   lcd.print(":");
   lcd.print(tenth2, DEC);
 }
-</pre> 
-</div>
-<div class="alert alert-danger">
-<strong>Strojové kódy bez Bootloadera</strong>
-</div>
-<h3><font color="#28B463">Stopky na stotiny - Shareware - 0x3F - I2C .hex</font></h3>
-<pre style="background-color:#28B463;">
+					</pre> 
+				</div>
+				<div class="alert alert-danger">
+					<strong>Strojové kódy bez Bootloadera</strong>
+				</div>
+				<h3><font color="#28B463">Stopky na stotiny - Shareware - 0x3F - I2C .hex</font></h3>
+				<pre style="background-color:#28B463;">
 :100000000C9462000C948A000C948A000C948A0070
 :100010000C948A000C948A000C948A000C948A0038
 :100020000C948A000C948A000C948A000C948A0028
@@ -552,9 +552,9 @@ void updateLCD2() {
 :1013BE00303A303020502E2050525544000D0A0045
 :0413CE0030300000BB
 :00000001FF
-</pre>
-<h3><font color="#C0392B">Stopky na stotiny - Shareware - 0x27 - I2C .hex</font></h3>
-<pre style="background-color:#C0392B;">
+						</pre>
+						<h3><font color="#C0392B">Stopky na stotiny - Shareware - 0x27 - I2C .hex</font></h3>
+						<pre style="background-color:#C0392B;">
 :100000000C9462000C948A000C948A000C948A0070
 :100010000C948A000C948A000C948A000C948A0038
 :100020000C948A000C948A000C948A000C948A0028
@@ -874,10 +874,10 @@ void updateLCD2() {
 :1013BE00303A303020502E2050525544000D0A0045
 :0413CE0030300000BB
 :00000001FF
-</pre>
-<h3>Schéma zapojenia (Eagle): </h3>
-<center><img src="https://i.imgur.com/GbU5zPK.png" style="display: block; max-width: 100%; height: auto;" title="Schéma zapojenia pre hasičské stopky / časomieru - Arduino" alt="Schéma zapojenia pre hasičské stopky / časomieru  - Arduino"></center>
-</div>
-</div>
+						</pre>
+						<h3>Schéma zapojenia (Eagle): </h3>
+						<center><img src="https://i.imgur.com/GbU5zPK.png" style="display: block; max-width: 100%; height: auto;" title="Schéma zapojenia pre hasičské stopky / časomieru - Arduino" alt="Schéma zapojenia pre hasičské stopky / časomieru  - Arduino"></center>
+						</div>
+					</div>
 </body>
 </html>
