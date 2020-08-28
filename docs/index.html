@@ -18,6 +18,9 @@
 	<div class="container">
   		<div class="row">
     			<div class="col-sm-12">
+				<div class="alert alert-sucess">
+					<strong>Projekt k repozitáru - Github: </strong><a href="https://github.com/martinius96/hasicske-stopky">Hasičské stopky</a>
+				</div>				
 				<span class="label label-default">Arduino</span>
 				<span class="label label-primary">LCD</span>
 				<span class="label label-success">Stopwatch</span>
@@ -230,6 +233,10 @@ void updateLCD2() {
 				</div>
 				<div class="alert alert-danger">
 					<strong>Strojové kódy bez Bootloadera</strong>
+				</div>
+				<div class="alert alert-danger">
+					<h4>Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex</h4>					
+					<li>avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i</li>
 				</div>
 				<h3><font color="#28B463">Stopky na stotiny - Shareware - 0x3F - I2C .hex</font></h3>
 				<pre style="background-color:#28B463;">
