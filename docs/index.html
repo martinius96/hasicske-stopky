@@ -234,7 +234,7 @@ void updateLCD2() {
 				<div class="alert alert-danger">
 					<strong>Strojové kódy bez Bootloadera</strong>
 				</div>
-				<div class="alert alert-danger">
+				<div class="alert alert-info">
 					<h4>Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex</h4>					
 					<li>avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i</li>
 				</div>
