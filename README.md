@@ -9,7 +9,8 @@
 # Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex
 * **avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i**
 
-![Hasičské stopky - Arduino - desatiny](https://i.imgur.com/Ciz66ft.jpg)
+![Hasičské stopky - Arduino - stotiny - zastavený čas](https://i.imgur.com/Ciz66ft.jpg)
+![Hasičské stopky - Arduino - stotiny - bežiaci čas](https://i.imgur.com/gBIOt4i.jpg)
 # Funkčnosť systému:
 * Stopky sa odštartujú kontaktom (môže byť nahradené signálnou pištoľou)
 * 2 spínacie kontakty umiestnené na terčoch sa aktivujú pri spadnutí terča, zastaví sa ľavý/pravý prúd na stopkách.
