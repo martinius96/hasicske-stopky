@@ -416,9 +416,9 @@ void updateLCD2() {
 				</div>
 				<div class="alert alert-info">
 					<h4>Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex (spustený cez CMD)</h4>					
-					<li>AVRDUDE je nainštalované s prostredím Arduino IDE. Nachádza sa v C:/Users/User/Documents/ArduinoData/packages/arduino/tools/avrdude/6.X.X-arduino/bin</li>					
+					<li>AVRDUDE je nutné spustiť cez CMD (príkazový riadok) je nainštalované s prostredím Arduino IDE. Nachádza sa v C:/Users/User/Documents/ArduinoData/packages/arduino/tools/avrdude/6.X.X-arduino/bin</li>					
 					<li>avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i</li>
-					<li><b><font color="red">Pre nahratie programu potrebujete programátor!</font> V prípade, že programátor nemáte, emulujte si ho na druhom Arduine (Arduino as ISP - programátor).</b></li>
+					<li>Ak sa v konzolových programoch neorientujete a potrebuje GUI rozhranie, využite nástroj XLoader.</b></li>
 				</div>
 				<h3><font color="#28B463">Stopky na stotiny - Shareware - 0x3F - I2C .hex - INTERNAL PULLUP</font></h3>
 				<pre style="background-color:#28B463;">
