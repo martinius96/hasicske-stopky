@@ -8,6 +8,7 @@
 
 # Nahratie strojového kódu do Arduina - vzorovo pre COM21 - nástroj avrdude - program sketch.ino.hex
 * **avrdude -CC: avrdude.conf -v -patmega328p -carduino -PCOM21 -b115200 -D -Uflash:w:sketch.ino.hex:i**
+* Možno využiť nástroj XLoader pre jednoduchšie nahratie firmvéru
 
 ![Hasičské stopky - Arduino - stotiny - zastavený čas](https://i.imgur.com/Ciz66ft.jpg)
 # Funkčnosť systému:
