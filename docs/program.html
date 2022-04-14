@@ -85,10 +85,7 @@
 			<center>
 	<img src="https://i.imgur.com/dgrSH1E.png" style="display: block; max-width: 100%; height: auto;" alt="XLoader - Arduino - AVRDUDE - Termostat - Ethernet" title="XLoader - Arduino - AVRDUDE - Termostat - Ethernet">	
 </center>
-				<h3><font color="#3498DB">Stopky na desatiny sekundy - verzia projektu zdarma - INTERNAL PULLUP.</font></h3>
-<div class="alert alert-danger">
-  <strong>Verzia zdarma negarantuje správnu funkčnosť stopiek!</strong>
-</div>				
+				<h3><font color="#3498DB">Stopky na desatiny sekundy - INTERNAL PULLUP.</font></h3>			
 <div>
 					<pre style="background-color:#3498DB;">
 /*|------------------------------------------------------------------------------------------|*/
@@ -98,10 +95,8 @@
 /*|INPUT PULLUP ZAPOJENIE S 50kohm INTERNAMY REZISTOROM (PODLA SCHEMY)                       |*/
 /*|PROGRAM FUNGUJE PRE ZASTAVENIE A SPUSTENIE OBOCH CASOV JEDNYM TLACIDLOM                   |*/
 /*|PROGRAMOVU LOGIKU SI MOZETE UPRAVIT PRE OVLADANIE CASOV SAMOSTATNYMI KONTAKTMI NA TERCOCH |*/
-/*|PRI ZAUJME O VERZIU NA STOTINY  --> martinius96@gmail.com                                 |*/
-/*|Doska: Arduino Uno, Nano, Mega, AtMega328P (Hardware I2C)                                 |*/
+/*|Doska: Arduino Uno, Nano, Mega, ATmega328P (Hardware I2C)                                 |*/
 /*|WEB: http://arduino.clanweb.eu/hasicske-stopky.php                                        |*/
-/*|PODPORA PROJEKTU PRE UVOLNENIE PLNEJ VERZIE ZDARMA: https://www.paypal.me/chlebovec       |*/
 /*|------------------------------------------------------------------------------------------|*/
 
 #include &lt;Wire.h>
@@ -262,6 +257,169 @@ void updateLCD2() {
   lcd.print(":");
   lcd.print(tenth2, DEC);
 }
+					</pre> 
+				</div>
+
+
+
+
+<h3><font color="#3498DB">Stopky na desatiny sekundy - INTERNAL PULLUP.</font></h3>			
+<div>
+					<pre style="background-color:#3498DB;">
+/*|--------------------------------------------------------------------------------------------|*/
+/*|VYHOTOVIL: MARTIN CHLEBOVEC                                                                 |*/
+/*|HASICSKE STOPKY - PLATENA VERZIA - NA STOTINY SEKUNDY S CASOM PRE DVA UTOKY - LAVY/PRAVY    |*/
+/*|FUNGUJE NA PRINCIPE FUNKCIE MILLIS() A VYKONAVANI KRATKYCH PROGRAMOVYCH CYKLOV              |*/
+/*|INPUT PULLUP ZAPOJENIE S 50kohm INTERNAMY REZISTOROM (PODLA SCHEMY) - MOZNO ZNIZIT EXTERNYM |*/
+/*|PROGRAM FUNGUJE PRE ZASTAVENIE A SPUSTENIE OBOCH CASOV JEDNYM TLACIDLOM                     |*/
+/*|Doska: Arduino Uno, Nano, Mega, ATmega328P (Hardware I2C)                                   |*/
+/*|WEB: https://arduino.php5.sk/hasicske-stopky.php                                            |*/
+/*|--------------------------------------------------------------------------------------------|*/
+
+#include &lt;Wire.h>
+#include &lt;LiquidCrystal_I2C.h>
+//I2C adresa, stlpce, riadky, pouziva sa i 0x3F pre displej 20x4, 0x27 pre 16x2, skontruj cez I2C scanner https://playground.arduino.cc/Main/I2cScanner/
+LiquidCrystal_I2C lcd(0x3F, 20, 4);
+
+//DEKLARACIA DIGITALNYCH PINOV NA KTORE SU NAPOJENE TLACIDLA
+const int start_tlacidlo = 12;
+const int lavy_terc_kontakt = 11;
+const int pravy_terc_kontakt = 10;
+const int vynulovat_cas_tlacidlo = 9;
+
+boolean run = false;         //bezi cas pre LAVY UTOK?
+boolean run2 = false;         //bezi cas pre PRAVY UTOK?
+
+//STAVY NACITANYCH LOGICKYCH HODNOT TLACIDIEL
+int start_tlacidlo_stav = HIGH;
+int lavy_terc_kontakt_stav = HIGH;
+int pravy_terc_kontakt_stav = HIGH;
+int vynulovat_cas_tlacidlo_stav = HIGH;
+
+unsigned long timer = 0; //timer
+
+//PREMENNE PRE PRVY CAS - LAVY UTOK
+int second = 0;
+int minute = 0;
+int tenth = 0;
+
+//PREMENNE PRE DRUHY CAS - PRAVY UTOK
+int second2 = 0;
+int minute2 = 0;
+int tenth2 = 0;
+
+void setup() {
+  Serial.begin(115200);
+  lcd.begin(); //incializacia displeja na I2C zbernici
+  Wire.setClock(400000); //400 kHz clock na I2C zbernici
+  lcd.backlight(); //zapnutie podsvietenia
+  pinMode(start_tlacidlo, INPUT_PULLUP); //nastav ako vstup proti internemu 50kohm pullup rezistoru
+  pinMode(lavy_terc_kontakt, INPUT_PULLUP);
+  pinMode(pravy_terc_kontakt, INPUT_PULLUP);
+  pinMode(vynulovat_cas_tlacidlo, INPUT_PULLUP);
+  lcd.setCursor(0, 0); //nastav kurzor pre zapis na 1. riadok, 1. stlpec
+  lcd.print("00:00:00 L. PRUD ");
+  lcd.setCursor(0, 1); //nastav kurzor pre zapis na 2. riadok, 1. stlpec
+  lcd.print("00:00:00 P. PRUD  ");
+}
+
+void loop() {
+  checkStart();
+  if ((micros() - timer) >= 10000 || timer == 0) {
+    timer = micros();
+    Serial.println(micros());
+    tick();
+  }
+}
+
+void checkStart() {
+  if (!digitalRead(start_tlacidlo)) {
+    run = true; //aktivuj cas pre lavy prud
+    run2 = true; //aktivuj cas pre pravy prud
+  }
+  if (!digitalRead(lavy_terc_kontakt)) {
+    run = false;
+  }
+  if (!digitalRead(pravy_terc_kontakt)) {
+    run2 = false;
+  }
+  if (!digitalRead(vynulovat_cas_tlacidlo)) {
+    run = false;
+    run2 = false;
+    second = 0;
+    minute = 0;
+    tenth = 0;
+    second2 = 0;
+    minute2 = 0;
+    tenth2 = 0;
+    lcd.setCursor(0, 0);
+    lcd.print("00:00:00 L. PRUD");
+    lcd.setCursor(0, 1);
+    lcd.print("00:00:00 P. PRUD");
+  }
+}
+
+
+void tick() { //tick sa vykonava kazdych 10 miliseund, teda kazdu stotinu sekundy
+  //LOGIKA BEZIACEHO CASU PRVEHO UTOKU (UTOK LAVY)
+  if (run) {
+    if (tenth == 99) {
+      tenth = 0;
+      if (second == 59) {
+        second = 0;
+        lcd.setCursor(3, 0);
+        lcd.print("00");
+        minute++;
+        lcd.setCursor(0, 0);
+        if (minute &lt; 10) {
+          lcd.print("0");
+        }
+        lcd.print(minute, DEC);
+      } else {
+        second++;
+        lcd.setCursor(3, 0);
+        if (second &lt; 10) {
+          lcd.print("0");
+        }
+        lcd.print(second, DEC);
+      }
+    } else {
+      tenth++;
+      lcd.setCursor(6, 0);
+      lcd.print(tenth, DEC);
+    }
+  }
+
+  //LOGIKA BEZIACEHO CASU DRUHEHO UTOKU (UTOK PRAVY)
+    if (run2) {
+    if (tenth2 == 99) {
+      tenth2 = 0;
+      if (second2 == 59) {
+        second2 = 0;
+        lcd.setCursor(3, 1);
+        lcd.print("00");
+        minute2++;
+        lcd.setCursor(0, 1);
+        if (minute2 &lt; 10) {
+          lcd.print("0");
+        }
+        lcd.print(minute2, DEC);
+      } else {
+        second2++;
+        lcd.setCursor(3, 1);
+        if (second2 &lt; 10) {
+          lcd.print("0");
+        }
+        lcd.print(second2, DEC);
+      }
+    } else {
+      tenth2++;
+      lcd.setCursor(6, 1);
+      lcd.print(tenth2, DEC);
+    }
+  }
+}
+
 					</pre> 
 				</div>
 </div>
